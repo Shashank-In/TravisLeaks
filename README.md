@@ -24,3 +24,6 @@ https://edoverflow.com/2019/ci-knew-there-would-be-bugs-here/
 
 The concept of entropy was adapted from 
 https://github.com/dxa4481/truffleHog
+
+
+# Note:- This tool still needs a lot of development. I would be glad if someone would like to contribute to this project.
