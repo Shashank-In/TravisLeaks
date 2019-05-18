@@ -13,7 +13,7 @@ Just enter the Travis user name of the organization. The script will automatical
 # Requirements
 1)Python 3.X
 2)requests
-pip install requests
+```pip install requests```
 
 # Instructions
 python travisleak.py travis_user_name
