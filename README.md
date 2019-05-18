@@ -31,6 +31,6 @@ https://github.com/dxa4481/truffleHog
 # Note
 This tool still needs a lot of development. I would be glad if someone would like to contribute to this project.
 
-#Goals
+# Goals
 1) Better output format
 2) Support CircleCI scans
