@@ -11,6 +11,16 @@ import tempfile
 import stat
 import re
 
+
+def ascii_art():
+    print("\n")
+    print(r" _                   _     _            _    ")
+    print(r"| |_ _ __ __ ___   _(_)___| | ___  __ _| | __")
+    print(r"| __| '__/ _` \ \ / / / __| |/ _ \/ _` | |/ /")
+    print(r"| |_| | | (_| |\ V /| \__ \ |  __/ (_| |   < ")
+    print(r" \__|_|  \__,_| \_/ |_|___/_|\___|\__,_|_|\_\\")
+    print("\n\n\n")
+
 uname = sys.argv[1]
 headers = {'Travis-API-Version': '3', 'Accept': 'application/json'}
 url1 = ("https://api.travis-ci.org/owner/" + uname + "/repos")
@@ -19,6 +29,7 @@ json_data = (r.text)
 json_string = json.loads(json_data)
 slug = []
 job_id = []
+ascii_art()
 
 BASE64_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 HEX_CHARS = "1234567890abcdefABCDEF"
@@ -2894,6 +2905,8 @@ def get_strings_of_set(word, char_set, threshold=20):
         strings.append(letters)
     return strings
 
+                                             
+
 
 for c in json_string['repositories']:
 	slug.append(c["slug"])
@@ -2907,25 +2920,26 @@ for i in slug:
 		for d in json_string2["current_build"]["jobs"]:
 			job_id.append(d["@href"])
 	except:
-		print("Job not found")
+		print("[-] Job not found")
 
 
 for j in job_id:
 	url3 = ('https://api.travis-ci.org/v3' + j +'/log.txt')
-	print(url3)
-	print("-------------")
+	print('\n\n[-] '+url3)
+	print("\n[-] ===========================Generating Report===========================\n\n")
 	r = requests.get(url3, headers=headers)
 	final_raw=(r.text)
 	for regex in regexList:
 		matches = re.finditer(regex, final_raw, re.MULTILINE | re.IGNORECASE)
 		for matchNum, match in enumerate(matches, start=1):
-			print ("Match {matchNum} was found at {start}-{end}: {match}".format(matchNum = matchNum, start = match.start(), end = match.end(), match = match.group()))
+			print ("[+] Match {matchNum} was found at {start}-{end}: {match}".format(matchNum = matchNum, start = match.start(), end = match.end(), match = match.group()))
 			for groupNum in range(0, len(match.groups())):
 				groupNum = (groupNum + 1)
-				print ("Group {groupNum} found at {start}-{end}: {group}".format(groupNum = groupNum, start = match.start(groupNum), end = match.end(groupNum), group = match.group(groupNum)))
+				print ("[+] Group {groupNum} found at {start}-{end}: {group}".format(groupNum = groupNum, start = match.start(groupNum), end = match.end(groupNum), group = match.group(groupNum)))
 
 
 	words =[word for word in final_raw.split(' ')]
+	print("\n\n")
 	for word in words: 
 		foundSomething = False
 		base64_strings = get_strings_of_set(word, BASE64_CHARS)
@@ -2941,6 +2955,6 @@ for j in job_id:
 		        foundSomething = True
 		        printableDiff = string
 		if foundSomething:
-		    print('Suspicious string:',printableDiff)
+		    print('[!] Suspicious string: ',printableDiff)
 
 
