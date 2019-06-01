@@ -69,11 +69,11 @@ def get_strings_of_set(word, char_set, threshold=20):
         strings.append(letters)
     return strings
 
-                                             
-
-
-for c in json_string['repositories']:
-	slug.append(c["slug"])
+try:
+    for c in json_string['repositories']:
+        slug.append(c["slug"])
+except:
+    print("[!] %s: User Not Found!" % (uname))
 
 for i in slug:
 	url2 = "https://api.travis-ci.org/repo/"+ urllib.parse.quote(i, safe='')  +"?include=repository.current_build"
