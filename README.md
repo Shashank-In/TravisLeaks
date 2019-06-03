@@ -19,9 +19,6 @@ Just enter the Travis user name of the organization. The script will automatical
 > Python 3.X  
 > ``` pip install requests ```
 
-## Requirements (using travisleak.exe application)
-> No Requirements.
-
 ## Usage
 > python travisleak.py travis_user_name
 
