@@ -17,14 +17,24 @@ Just enter the Travis user name of the organization. The script will automatical
 ## Requirements (using travisleak.py script)
 
 > Python 3.X  
-> ``` pip install requests ```
+> ``` pip install -r requirements.txt ```
+> 
+> Optional: Github Token for scanning GitHub Org's members 
+> 
+> ```export GITHUB_API_KEY="" ```
 
 ## Usage
-> python travisleak.py travis_user_name
+> python travisleak.py -o travis_user_name -m -out Directory_to_write_output_to
+>
+> -m Optional to scan Organization's members  
 
-</br>
 
-![travis_exe_1](https://user-images.githubusercontent.com/41824020/57980169-f2b7b000-7a44-11e9-97d9-80ce7635b546.png)
+<br>
+
+<div style='float: center'>
+  <img style='width: 600px' src="travisleak.png"></img>
+</div>
+
 
 </br>
 
