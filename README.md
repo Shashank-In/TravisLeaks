@@ -21,7 +21,7 @@ Just enter the Travis user name of the organization. The script will automatical
 > 
 > Optional: Github Token for scanning GitHub's Org members 
 > 
-> ```export GITHUB API KEY="" ```
+> ```export GITHUB_API_KEY="" ```
 
 ## Usage
 > python travisleak.py -o travis_user_name -m -out Directory_to_write_output_to
