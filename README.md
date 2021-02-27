@@ -19,7 +19,7 @@ Just enter the Travis user name of the organization. The script will automatical
 > Python 3.X  
 > ``` pip install -r requirements.txt ```
 > 
-> Optional: Github Token for scanning GitHub's Org members 
+> Optional: Github Token for scanning GitHub Org's members 
 > 
 > ```export GITHUB_API_KEY="" ```
 
