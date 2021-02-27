@@ -247,7 +247,7 @@ class TravisLeak:
 ascii_art()
 
 
-parser = argparse.ArgumentParser(description='TravisLeak Scanner Tool is written in Python3 that scans Organization/User repositories for leaks such as GitHub Token, AWS Access Keys and more. \n\n')
+parser = argparse.ArgumentParser(description='TravisLeak Scanner Tool is written in Python3 that scans Organization/User Travis build logs for leaks such as GitHub Token, AWS Access Keys and more. \n\n')
 parser.add_argument('-o', '--org', help='Organization name or user account',required=True)
 parser.add_argument("-m", "--include-members", help="scan organization's members", action="store_true")
 parser.add_argument('-out', '--output', help='Organization name or user account',required=True)
